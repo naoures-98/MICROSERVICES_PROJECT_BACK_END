@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ReferentielService
+  config:
+    import: optional:configserver:http://localhost:8888

@@ -1,0 +1,21 @@
+#spring.application.name=EurekaService
+#######spring.application.name=EurekaService
+######server.port=8790
+# we don't need to register  eureka
+#####eureka.client.register-with-eureka=false
+# we don't need to fetch  registry
+#####eureka.client.fetch-registry=false
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+server:
+  port: 8761
+spring:
+  application:
+    name: EurekaService
+

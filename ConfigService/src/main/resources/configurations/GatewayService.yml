@@ -1,0 +1,44 @@
+#spring.application.name=GatewayService
+eureka:
+  client:
+    register-with-eureka: false
+
+server:
+  port: 8222
+spring:
+  application:
+    name: GatewayService
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: REFERENTIEL-SERVICE
+          uri: http://localhost:8071
+          predicates:
+            - Path=/Referentiel/**
+        - id: SCORING-SERVICE
+          uri: http://localhost:8091
+          predicates:
+            - Path=/Scoring/**
+      gateway:
+        globalcors:
+          corsConfigurations:
+            '[/**]':
+              allowedOrigins:
+                - http://localhost:4200
+              allowedMethods:
+                - GET
+                - POST
+                - PUT
+                - DELETE
+                - OPTIONS
+              allowedHeaders:
+                - '*'
+              allowCredentials: true
+management:
+  tracing:
+    sampling:
+      probability: 1.0

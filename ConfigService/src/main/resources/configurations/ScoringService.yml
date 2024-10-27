@@ -1,0 +1,35 @@
+#spring.application.name=ScoringService
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8091
+spring:
+  application:
+    name: ScoringService
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/ScoringDB?createDatabaseIfNotExist=true
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+application:
+  config:
+    currency-url: http://localhost:8222/Referentiel/Currency
+    branch-url: http://localhost:8222/Referentiel/Branchs
+    financingType-url: http://localhost:8222/Referentiel/FinancingType
+    juridicalForm-url: http://localhost:8222/Referentiel/JuridicalForm
+    activitySector-url: http://localhost:8222/Referentiel/ActivitySector
+management:
+  tracing:
+    sampling:
+      probability: 1.0
