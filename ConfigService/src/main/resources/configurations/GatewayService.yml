@@ -11,6 +11,10 @@ spring:
 
   cloud:
     gateway:
+      filters:
+        - name: CORS
+          args:
+            - '[/**]'
       discovery:
         locator:
           enabled: true
@@ -19,26 +23,44 @@ spring:
           uri: http://localhost:8071
           predicates:
             - Path=/Referentiel/**
+          filters:
+            - AuthenticationFilter
         - id: SCORING-SERVICE
           uri: http://localhost:8091
           predicates:
             - Path=/Scoring/**
-      gateway:
-        globalcors:
-          corsConfigurations:
-            '[/**]':
-              allowedOrigins:
-                - http://localhost:4200
-              allowedMethods:
-                - GET
-                - POST
-                - PUT
-                - DELETE
-                - OPTIONS
-              allowedHeaders:
-                - '*'
-              allowCredentials: true
+          filters:
+            - AuthenticationFilter
+        - id: SECURITY-SERVICE
+          uri: http://localhost:8081
+          predicates:
+            - Path=/Security/**
+          filters:
+            - AuthenticationFilter
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:4200"  # Utilisez uniquement l'origine spécifique
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "Authorization"
+              - "Content-Type"
+              - "*"
+            allowedResponseHeaders:
+              - "*"
+            allowCredentials: true
+
 management:
   tracing:
     sampling:
       probability: 1.0
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping: DEBUG

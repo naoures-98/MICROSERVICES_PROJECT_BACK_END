@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Referentiel/ActivitySector")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class ActivitySectorController {
     @Autowired
     IActivitySectorService activitySectorService;

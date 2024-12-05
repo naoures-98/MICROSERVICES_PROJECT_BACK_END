@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Scoring/CSC")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class ClientSegmentConfigController {
     @Autowired
     IClientSegmentConfigService clientSegmentConfigService;

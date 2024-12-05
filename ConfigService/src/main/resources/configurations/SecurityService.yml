@@ -1,0 +1,32 @@
+#spring.application.name=SecurityService
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8081
+spring:
+  application:
+    name: SecurityService
+
+  security:
+    enabled: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/Security?createDatabaseIfNotExist=true
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+springdoc:
+  api-docs:
+    path: /api-docs
+
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0

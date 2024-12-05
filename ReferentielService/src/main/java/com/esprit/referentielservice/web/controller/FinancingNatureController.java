@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Referentiel/FinancingNature")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class FinancingNatureController {
     @Autowired
     IFinancingNatureService financingNatureService;

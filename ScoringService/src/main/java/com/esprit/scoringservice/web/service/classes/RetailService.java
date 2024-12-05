@@ -166,6 +166,16 @@ public class RetailService implements IRetailService {
                     retail.get().getContractReference(),
                     retail.get().getEmail(),
                     retail.get().getTelephone(),
+
+                    retail.get().getMntSollicite(),
+                    retail.get().getDuree(),
+                    retail.get().getMntSolliEcheance(),
+                    retail.get().getMntInitial(),
+                    retail.get().getCapitalRestantDu(),
+                    retail.get().getMntEncEcheance(),
+                    retail.get().getEndDateEncours(),
+                    retail.get().getStatutDossier(),
+                    retail.get().getRetourAnalyste(),
                     retail.get().getStartDate(),
                     retail.get().getEndDate(),
                     retail.get().getCapitalNominal(),
@@ -186,7 +196,8 @@ public class RetailService implements IRetailService {
                     retail.get().getFamilySituation(),
                     retail.get().getProfession(),
                     retail.get().getEmployementStatus(),
-                    currency,branch,financingType,
+                    currency,
+                    branch,financingType,
                     retail.get().getClientNotation()
 
             );

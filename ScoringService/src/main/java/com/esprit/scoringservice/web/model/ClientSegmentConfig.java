@@ -1,6 +1,7 @@
 package com.esprit.scoringservice.web.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -32,4 +33,6 @@ public class ClientSegmentConfig {
     @OneToMany(mappedBy = "clientSegmentConfig")
     @JsonBackReference
     private List<ClientNotation> clientNotations;
+
+
 }

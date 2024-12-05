@@ -26,7 +26,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/Referentiel/Branchs")
-@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8222"})
+
 
 public class BranchController {
     @Autowired
@@ -36,7 +36,7 @@ public class BranchController {
     }
     @Tag(name = "get", description = "GET methods of BRANCH APIs")
     @RequestMapping(method = RequestMethod.GET)
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.GET})
+    //@CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.GET})
     public MappingJacksonValue listeAgences() {
 
         Iterable<Branch> branchs = branchDao.findAll();
@@ -63,7 +63,7 @@ public class BranchController {
         @ApiResponse(responseCode = "404", description = "Branch not found",
                 content = @Content) })
     @GetMapping("/{id}")
-@CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.GET})
+//@CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.GET})
     public Optional<Branch> getBranchById(
             @Parameter(description = "ID of Branch to be retrieved",
         required = true) @PathVariable Long id){
@@ -74,17 +74,17 @@ public class BranchController {
         return branch;
     }
     @DeleteMapping ("/{id}")
-    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.DELETE})
+//    @CrossOrigin(origins = {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.DELETE})
     public void deleteBranch(@PathVariable Long id){
         branchDao.deleteById(id);
     }
     @PutMapping
-    @CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.PUT})
+//    @CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.PUT})
     public void updateBranch(@RequestBody Branch branch){
         branchDao.save(branch);
     }
     @PostMapping
-    @CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.POST})
+//    @CrossOrigin(origins =  {"http://localhost:4200", "http://localhost:8222"}, methods = {RequestMethod.POST})
     public ResponseEntity<Branch> addBranch(@Valid @RequestBody Branch branch){
         Branch branchAdded =branchDao.save(branch);
         if(Objects.isNull(branchAdded))

@@ -43,6 +43,17 @@ public class FullCorporateResponse {
     private String contractReference;
     private String email;
     private String telephone;
+
+    private double mntSollicite;
+    private int duree ;
+    private double mntSolliEcheance ;
+    private double mntInitial;
+    private double capitalRestantDu;
+    private double mntEncEcheance;
+    private Date endDateEncours;
+    private Statut statutDossier ;
+    private String retourAnalyste  ;
+
     private Date startDate;
     private Date endDate;
     private double capitalNominal;

@@ -31,6 +31,21 @@ public class ScoringContractData {
     private Date endDate;
     private String email;
     private String telephone;
+
+
+    /////
+    private double mntSollicite;
+    private int duree ;
+    private double mntSolliEcheance ;
+    private double mntInitial;
+    private double capitalRestantDu;
+    private double mntEncEcheance;
+    @Temporal(TemporalType.DATE)
+    private Date endDateEncours;
+    @Enumerated(EnumType.STRING)
+    private Statut statutDossier ;
+    private String retourAnalyste  ;
+    /////
     @OneToOne(mappedBy = "scoringContractData")
     @JsonBackReference
     private  ClientNotation clientNotation;
